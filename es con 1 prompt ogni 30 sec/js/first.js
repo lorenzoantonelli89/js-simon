@@ -18,22 +18,24 @@ function getRandomArray() {
 getRandomArray();
 
 var numInsertValues = [];
-
+var numInsertCorrect = [];
 var block = 0;
 
 function reqNum() {
   var numInsert = parseInt(prompt('Scrivi i numeri che hai visto'));
   numInsertValues.push(numInsert);
+  if (randomValues.includes(numInsert)) {
+    numInsertCorrect.push(numInsert);
+  }
 
   if (numInsertValues.length > 4) {
     clearInterval(block);
-    console.log('fine inserimento numeri');
   }
 
-  if (randomValues.includes(numInsert)) {
+  if (numInsertCorrect.length == 5) {
     console.log('Hai vinto');
-  }else {
-    console.log('Hai perso totalizzando ' + numInsertValues.length + ' punti, i numeri indovinati sono : ' + numInsertValues);
+  }else if (numInsertCorrect.length !== 5) {
+    console.log('Hai perso totalizzando ' + numInsertCorrect.length + ' punti, i numeri indovinati sono : ' + numInsertCorrect);
   }
 }
 
