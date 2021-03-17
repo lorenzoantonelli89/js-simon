@@ -5,8 +5,9 @@ function getRandomValue(min, max) {
   return Math.floor(Math.random() * localMax) + localMin;
 }
 
+var randomValues = [];
+
 function getRandomArray() {
-  var randomValues = [];
   while (randomValues.length < 5) {
     var rnd = getRandomValue(1, 100);
     randomValues.push(rnd);
@@ -16,36 +17,28 @@ function getRandomArray() {
 }
 getRandomArray();
 
+var numInsertValues = [];
+
 function reqNum() {
   for (var i = 0; i < 5; i++) {
     var numInsert = parseInt(prompt('Scrivi i numeri che hai visto'));
+    if (randomValues.includes(numInsert)) {
+      numInsertValues.push(numInsert);
+    }
+  }
+
+  if (randomValues.includes(numInsert)) {
+    console.log('Hai vinto');
+  }else {
+    console.log('Hai perso totalizzando ' + numInsertValues.length + ' punti, i numeri indovinati sono : ' + numInsertValues);
   }
 }
 
+
 function init() {
 
-  setTimeout(reqNum, 5000);
+  setTimeout(reqNum, 30000);
 
 }
 
 init();
-
-
-// var block = 0;
-
-// function reqNum() {
-//   var numInsert = parseInt(prompt('Scrivi i numeri che hai visto'));
-//
-//   if (numInser > 5) {
-//     clearInterval(block);
-//     console.log('fine inserimento numeri');
-//   }
-// }
-//
-// function init() {
-//
-//   block = setInterval(reqNum, 5000);
-//
-// }
-//
-// init();
