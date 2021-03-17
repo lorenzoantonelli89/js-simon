@@ -34,15 +34,16 @@ function reqNum() {
 
   if (numInsertCorrect.length == 5) {
     console.log('Hai vinto');
-  }else if (numInsertCorrect.length !== 5) {
+  }else if (numInsertValues.length == 5 ) {
     console.log('Hai perso totalizzando ' + numInsertCorrect.length + ' punti, i numeri indovinati sono : ' + numInsertCorrect);
   }
+
 }
 
 
 function init() {
 
-  block = setInterval(reqNum, 1000);
+  block = setInterval(reqNum, 30000);
 
 }
 
